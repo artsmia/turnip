@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-height,initial-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Audacious Eye Audio Tour</title>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
+  <link rel="stylesheet" href="audio-tour.css">
+</head>
+<body ng-app="turnip">
+
+<header>
+  <nav>
+    <a href="#" id="menu">&#9776;</a>
+    <img src="logo.svg" alt="MIA Logo">
+    <span>&#9906;</span>
+  </nav>
+  <h1>The Audacious Eye</h1>
+</header>
+
+<article ng-controller="tourCtrl">
+  <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index}" ng-click="activateStop($index)">
+    <h2>{{$index}} {{stop.name}}</h2>
+    <ul>
+      <li ng-click="play($event, this)">
+        {{stop.name}}
+        <audio src="mp3/{{stop.file}}.mp3"></audio>
+      </li>
+      <li ng-repeat="(color, _stop) in stop.colors" ng-class="color" ng-click="play($event, this)">
+        {{_stop.name}}
+        <audio src="mp3/{{_stop.file}}.mp3"></audio>
+      </li>
+    </ul>
+  </section>
+</article>
+
+</body>
+</html>
