@@ -1,6 +1,9 @@
 body {
   background-color: rgba(230, 230, 230, 1);
   font: "myriad-pro", sans-serif;
+  width: 100%;
+  max-width: 30em;
+  margin: 0 auto;
 }
 
 header {
