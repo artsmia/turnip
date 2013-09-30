@@ -2,7 +2,7 @@ stops:
   -
     id: 0
     file: '000'
-    name: Narrator’s Description
+    name: Introduction and Welcome
     more: Welcome and introduction by Kaywin Feldman, Director & President, MIA and Matthew Welch, Deputy Director, MIA  - 0
     speaker: Kaywin Feldman, Director & President, MIA and Matthew Welch, Deputy Director, MIA
     length: '4:41'
@@ -14,7 +14,7 @@ stops:
     accession: '1982.002'
     speaker: Andreas Marks
     length: '1:57'
-    leaves:
+    colors:
       green: 
         file: '001G'
         name: How was it made?
