@@ -95,3 +95,21 @@ section.active ul {
   background-color: hsla(35.91, 100.00%, 50.20%, 1.00);
 }
 
+.stop .icon {
+  float: right;
+  font-size: 93%;
+  border-radius: 2px;
+}
+.icon.play {
+  width: 0;
+  height: 0;
+  border-top: 0.55em solid transparent;
+  border-bottom: 0.55em solid transparent;
+  border-left: 1em solid #eee;
+}
+.playing .icon.play {
+  border: none;
+  background: #eee;
+  width: 1em;
+  height: 1em;
+}

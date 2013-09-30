@@ -27,13 +27,10 @@
   <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index}" ng-click="activateStop($index)">
     <h2>{{$index}} {{stop.name}}</h2>
     <ul>
-      <li ng-click="play($event, this)">
-        {{stop.name}}
+      <li ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop)]" ng-click="play(stop)">
+        <span class="icon play"><a href="#"></a></span>
+        <strong ng-bind="stop.name"></strong>
         <audio src="mp3/{{stop.file}}.mp3"></audio>
-      </li>
-      <li ng-repeat="(color, _stop) in stop.colors" ng-class="color" ng-click="play($event, this)">
-        {{_stop.name}}
-        <audio src="mp3/{{_stop.file}}.mp3"></audio>
       </li>
     </ul>
   </section>
