@@ -7,9 +7,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>Audacious Eye Audio Tour</title>
 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js"></script>
+  <script src="bower_components/orbicular/orbicular/orbicular.js"></script>
   <script src="app.js"></script>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
+  <link rel="stylesheet" href="orbicular.css">
   <link rel="stylesheet" href="audio-tour.css">
 </head>
 <body ng-app="turnip">
@@ -24,15 +27,28 @@
 </header>
 
 <article ng-controller="tourCtrl">
-  <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index}" ng-click="activateStop($index)">
+  <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
     <h2>{{$index}} {{stop.name}}</h2>
-    <ul>
-      <li ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop)]" ng-click="play(stop)">
-        <span class="icon play"><a href="#"></a></span>
-        <strong ng-bind="stop.name"></strong>
-        <audio src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio>
-      </li>
-    </ul>
+    <div>
+      <div class="now-playing">
+        <a ng-click="restart()">(restart)</a>
+        <a ng-click="scrub(-15)">(jump back)</a>
+        <div class="orb">
+          <orbicular progress="playing.info.time" total="playing.info.duration">
+            <span ng-click="play()" class="icon play"><a href="#"></a></span>
+          </orbicular>
+        </div>
+        <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
+      </div>
+
+      <ul>
+        <li ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
+          <span class="icon play"><a href="#"></a></span>
+          <strong ng-bind="stop.name"></strong>
+          <audio src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio>
+        </li>
+      </ul>
+    </div>
   </section>
 </article>
 

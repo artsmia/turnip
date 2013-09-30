@@ -3,8 +3,16 @@
 (function() {
   'use strict';
 
-  window.app = angular.module('turnip', [])
+  window.app = angular.module('turnip', ['Orbicular'])
  
+  app.filter('secondsToTime', function() {
+    return function(seconds, args) {
+      var m = Math.floor(seconds/60), s = Math.floor(seconds%60),
+      string = seconds ? m + ':' + ("0" + s).slice(-2) : '0:00'
+      return string
+    }
+  })
+
   app.controller('tourCtrl', function($scope) {
     window.$scope = $scope
 
@@ -19,9 +27,15 @@
       return stops
     }
 
-    $scope.play = function(stop) {
+    $scope.play = function(stop, scope) {
       var li = angular.element(event.target)
-      while(li[0].nodeName != 'LI') li = li.parent()
+      if(li.hasClass('icon play')) {
+        // beware, jquery
+        li = $scope.playing && $scope.playing.li || li.parents('section').find('li:first')
+        stop = li.scope().stop
+      } else {
+        while(li[0].nodeName != 'LI') li = li.parent()
+      }
       var audio = li.find('audio')[0]
 
       if($scope.playing && !$scope.playing.audio.paused) {
@@ -33,12 +47,44 @@
       audio.play()
       audio.addEventListener('timeupdate', function(event) {
         var audio = $scope.playing.audio
-        $scope.playing.percentDone = audio.currentTime / audio.duration
+        $scope.playing.li.scope().info = $scope.playing.info = {
+          time: audio.currentTime,
+          duration: audio.duration,
+          percentDone: audio.currentTime / audio.duration
+        }
+        $scope.$apply()
       })
-      audio.addEventListener('ended', function(event) {})
+      audio.addEventListener('ended', function(event) {
+        $scope.playing.info = {time: 0}
+      })
 
-      $scope.isPlayingClass = function(stop) {
-        return $scope.playing.stop == stop && !$scope.playing.audio.paused ? 'playing' : ''
+      $scope.isPlayingClass = function(stop, returnBoolean, checkLeaves) {
+        var leafIsPlaying = false,
+          returnBoolean = returnBoolean || false,
+          checkLeaves = checkLeaves == undefined ? true : false
+        for(var x in stop.colors || {}) {
+          if(checkLeaves && $scope.playing.stop == stop.colors[x]) leafIsPlaying = true
+        }
+
+        if((leafIsPlaying || $scope.playing.stop == stop) && !$scope.playing.audio.paused) {
+          var _return = returnBoolean ? true : 'playing'
+          return _return
+        } else {
+          return false
+        }
+      }
+
+      $scope.resume = function() {
+        if(!$scope.playing) return
+        var audio = $scope.playing.audio
+        audio.paused ? audio.play() : audio.pause()
+      }
+
+      $scope.restart = function() {
+        $scope.playing.audio.currentTime = 0
+      }
+      $scope.scrub = function(delta) {
+        $scope.playing.audio.currentTime += delta
       }
     }
 

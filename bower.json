@@ -1,0 +1,21 @@
+{
+  "name": "tournip",
+  "version": "0.0.0",
+  "authors": [
+    "Kjell <kjell@leanside.com>"
+  ],
+  "description": "Audio Tours at the MIA",
+  "license": "MIT",
+  "homepage": "tours.artsmia.org",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "orbicular": "~1.0.0"
+  }
+}
