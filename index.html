@@ -30,7 +30,7 @@
       <li ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop)]" ng-click="play(stop)">
         <span class="icon play"><a href="#"></a></span>
         <strong ng-bind="stop.name"></strong>
-        <audio src="mp3/{{stop.file}}.mp3"></audio>
+        <audio src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio>
       </li>
     </ul>
   </section>
