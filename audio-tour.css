@@ -166,3 +166,9 @@ section div > .now-playing .co-circle-progress {
 .stop.playing .now-playing {
   display: block;
 }
+
+aside #restore {
+  width: 10em;
+  display: block;
+  margin: 1em auto;
+}
