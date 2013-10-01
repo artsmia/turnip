@@ -24,6 +24,36 @@
     $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/" : storeLink
   })
 
+  app.directive('restorePurchases', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      transclude: true,
+      template: '<button id="restore" ng-click="restorePurchases()">Restore Purchases</button>',
+      // controller: function($scope) {
+      // },
+      link: function(scope, element, attrs) {
+        var sendCommand = function(command) {
+          if($scope.Android) {
+            eval("AndroidArtsMIA." + command + "()")
+          } else if($scope.iOS) {
+            window.location = "artsmia://" + command
+          } else {
+            console && console.info('sending command', command)
+          }
+        }
+        scope.restorePurchases = function() {
+          sendCommand('restorePurchases')
+        }
+
+        scope.Android = !(navigator.userAgent.match(/org.artsmia.android/i) == null);
+        scope.iOS = !(navigator.userAgent.match(/org.artsmia.ios/i) == null);
+        scope.inApp = scope.Android || scope.iOS
+        if(!scope.inApp) element.remove() // TODO: throw down a paywall?
+      }
+    }
+  })
+
   app.controller('tourCtrl', function($scope) {
     window.$scope = $scope
 

@@ -187,3 +187,9 @@ section div > .now-playing .co-circle-progress {
   position: relative;
   left: 12%;
 }
+
+aside #restore {
+  width: 20em;
+  display: block;
+  margin: 1em auto;
+}
