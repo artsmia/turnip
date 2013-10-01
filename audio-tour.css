@@ -1,6 +1,6 @@
 body {
   background-color: rgba(230, 230, 230, 1);
-  font: "myriad-pro", sans-serif;
+  font-family: "myriad-pro", sans-serif;
   width: 100%;
   max-width: 30em;
   margin: 0 auto;
@@ -54,10 +54,20 @@ section {
 }
 section h2 {
   margin: 0;
-  padding: 0.25em 0.5em;
-  border: 1px solid rgba(1, 1, 1, 0.7);
-  border-width: 1px 0 1px 0;
-  font-size: 1em
+  padding: 0.5em 1em;
+  border: 1px solid rgba(1, 1, 1, 0.4);
+  border-width: 1px 0 0px 0;
+}
+section h2, li strong {
+  font-size: 1em;
+  font-weight: 300;
+}
+li strong {
+  color: white;
+}
+section h2 em {
+  margin-right: 0.25em;
+  font-style: normal;
 }
 section div {
   display: none;
@@ -85,6 +95,7 @@ section.active div {
   width: 75%;
   margin: 0.25em auto;
   padding: 0.5em;
+  border-radius: 3px;
 }
 .stop li.green {
   background-color: hsla(150.97, 53.14%, 34.31%, 1.00);
@@ -113,6 +124,9 @@ section.active div {
   background: #eee;
   width: 1em;
   height: 1em;
+}
+li .icon.play {
+  margin-top: 0.15em;
 }
 .now-playing .icon {
   display: -webkit-box;
