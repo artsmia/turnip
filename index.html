@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
   <link rel="stylesheet" href="orbicular.css">
   <link rel="stylesheet" href="audio-tour.css">
+  <script type="text/javascript" src="http://use.typekit.net/jkg2ird.js"></script>
+  <script type="text/javascript"> try{ Typekit.load(); } catch(e){ } </script>
 </head>
 <body ng-app="turnip">
 
@@ -28,7 +30,7 @@
 
 <article ng-controller="tourCtrl">
   <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
-    <h2>{{$index}} {{stop.name}}</h2>
+    <h2><em>{{$index}}</em> {{stop.name}}</h2>
     <div>
       <div class="now-playing">
         <a ng-click="restart()">(restart)</a>
