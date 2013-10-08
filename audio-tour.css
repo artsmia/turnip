@@ -175,3 +175,15 @@ section div > .now-playing .co-circle-progress {
   text-align: center;
   font-size: 120%;
 }
+
+.restart img {
+  width: 28px;
+  padding-top: 6px;
+}
+.jump-back img {
+  width: 42px;
+}
+.orb {
+  position: relative;
+  left: 12%;
+}
