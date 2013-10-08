@@ -17,18 +17,27 @@
   <script type="text/javascript" src="http://use.typekit.net/jkg2ird.js"></script>
   <script type="text/javascript"> try{ Typekit.load(); } catch(e){ } </script>
 </head>
-<body ng-app="turnip">
+<body ng-app="turnip" ng-controller="turnipCtrl">
 
 <header>
   <nav>
-    <a href="#" id="menu">&#9776;</a>
+    <a href="/" id="menu">&#9776;</a>
     <img src="logo.svg" alt="MIA Logo">
     <span>&#9906;</span>
   </nav>
   <h1>The Audacious Eye</h1>
 </header>
 
-<article ng-controller="tourCtrl">
+<aside class="promo" ng-if="!showTour">
+  <h2 style="text-align: center">Coming soon to a mobile device near you</h2>
+
+  <p>Get more from your visit with this insightful 13-stop exhibition audio guide. The tour is in numerical order, but you can listen to the stops in any order. Many of the works have more than one audio stop that provides additional layers of information.</p>
+  <p>The Audacious Eye presents more than 100 highlights of the legendary Clark Collections of Japanese art, recently acquired by the MIA.</p>
+  <p>This tour is available both for rental on a handheld device and via in-app purchase on iOS and Android.</p>
+  <p id="call-to-action"><a href="/audacious-eye-tour">$1.99, Buy Now</a></p>
+</aside>
+
+<article ng-controller="tourCtrl" ng-if="showTour">
   <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
     <h2><em>{{$index}}</em> {{stop.name}}</h2>
     <div>
@@ -53,6 +62,8 @@
     </div>
   </section>
 </article>
-
+<aside>
+  <restore-purchases></restore-purchases>
+</aside>
 </body>
 </html>

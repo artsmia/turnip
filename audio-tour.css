@@ -166,3 +166,12 @@ section div > .now-playing .co-circle-progress {
 .stop.playing .now-playing {
   display: block;
 }
+
+.promo {
+  margin: 0 1em;
+}
+
+#call-to-action {
+  text-align: center;
+  font-size: 120%;
+}

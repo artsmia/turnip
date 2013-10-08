@@ -13,6 +13,12 @@
     }
   })
 
+  app.controller('turnipCtrl', function($scope) {
+    $scope.tourUrl = '/audacious-eye-tour'
+    $scope.showTour = !!window.location.pathname.match($scope.tourUrl)
+    $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
+  })
+
   app.controller('tourCtrl', function($scope) {
     window.$scope = $scope
 
