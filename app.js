@@ -17,6 +17,11 @@
     $scope.tourUrl = '/audacious-eye-tour'
     $scope.showTour = !!window.location.pathname.match($scope.tourUrl)
     $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
+    var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
+      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
+      'https://play.google.com/store/apps/details?id=org.artsmia.android'
+
+    $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/" : storeLink
   })
 
   app.controller('tourCtrl', function($scope) {
