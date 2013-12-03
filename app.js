@@ -29,14 +29,14 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: '<button id="restore" ng-click="restorePurchases()">Restore Purchases</button>',
+      template: '<a href="#" id="restore" ng-click="restorePurchases()">Restore Purchases</a>',
       // controller: function($scope) {
       // },
       link: function(scope, element, attrs) {
         var sendCommand = function(command) {
-          if($scope.Android) {
+          if(scope.Android) {
             eval("AndroidArtsMIA." + command + "()")
-          } else if($scope.iOS) {
+          } else if(scope.iOS) {
             window.location = "artsmia://" + command
           } else {
             console && console.info('sending command', command)
@@ -49,7 +49,7 @@
         scope.Android = !(navigator.userAgent.match(/org.artsmia.android/i) == null);
         scope.iOS = !(navigator.userAgent.match(/org.artsmia.ios/i) == null);
         scope.inApp = scope.Android || scope.iOS
-        if(!scope.inApp) element.remove() // TODO: throw down a paywall?
+        if(!scope.iOS) element.remove() // TODO: throw down a paywall?
       }
     }
   })
