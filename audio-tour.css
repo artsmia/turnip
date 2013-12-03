@@ -193,3 +193,97 @@ aside #restore {
   display: block;
   margin: 1em auto;
 }
+
+/* buttons
+ * http://codepen.io/FelipeMarcos/pen/tfhEg
+ */
+.color .mia-blue {background: #1788a3;} /* possible this not needed */
+
+.btn.mia-blue {
+  box-shadow: 0px 4px rgb(24, 136, 163);
+  /* box-shadow: none; version 2 */
+}
+.btn.mia-blue, .btn-two.mia-blue {
+  background-color: rgb(80, 155, 173);
+  /* background-color: rgb(24, 136, 163); version 2 */
+}
+
+.btn, .btn-two {
+	margin: 9px;
+}
+.btn-gradient {
+	margin: 5px;
+}
+a[class*="btn"] {text-decoration: none;}
+input[class*="btn"],
+button[class*="btn"] {border: 0;}
+
+/* Here you can change the button sizes */
+.btn.large,
+.btn-two.large,
+.btn-effect.large {
+  padding: 20px 40px;
+  font-size: 22px;
+}
+.btn.small,
+.btn-two.small,
+.btn-gradient.small,
+.btn-effect.small {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+.btn.mini,
+.btn-two.mini,
+.btn-gradient.mini,
+.btn-effect.mini {
+  padding: 4px 12px;
+  font-size: 12px;
+}
+.btn.block,
+.btn-two.block,
+.btn-gradient.block,
+.btn-effect.block {
+  display: block;
+  text-align: center;
+}
+.btn-gradient.large {
+  padding: 15px 45px;
+  font-size: 22px;
+}
+/* Button two - I have no creativity for names */
+.rounded {
+  border-radius: 10px;
+}
+
+/* default button style */
+.btn {
+	position: relative;
+	border: 0;
+	padding: 15px 25px;
+	display: inline-block;
+	text-align: center;
+	color: white;
+  transition: all 0.08s;
+}
+.btn:active {
+	top: 4px;
+}
+
+.btn-two {
+	color: white;
+	padding: 15px 25px;
+	display: inline-block;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom-color: rgba(0,0,0,0.34);
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset,
+				0 2px 0 -1px rgba(0,0,0,0.13),
+				0 3px 0 -1px rgba(0,0,0,0.08),
+				0 3px 13px -1px rgba(0,0,0,0.21);
+}
+.btn-two:active {
+	top: 1px;
+	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+	position: relative;
+}
