@@ -185,7 +185,9 @@ section div > .now-playing .co-circle-progress {
 }
 .orb {
   position: relative;
-  left: 12%;
+}
+div.co-circle-progress > div.bg {
+  background-color: #3b3b3b;
 }
 
 aside #restore {
