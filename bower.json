@@ -6,7 +6,7 @@
   ],
   "description": "Audio Tours at the MIA",
   "license": "MIT",
-  "homepage": "tours.artsmia.org",
+  "homepage": "audio-tours.artsmia.org",
   "private": true,
   "ignore": [
     "**/.*",
@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "orbicular": "~1.0.0"
+    "orbicular": "~1.0.0",
+    "jquery": "~2.0.3"
   }
 }

@@ -1,5 +1,6 @@
 bower_components
-bower_components
+components
 .sass-cache
 *.jpg
 audacious-eye-tour
+files
