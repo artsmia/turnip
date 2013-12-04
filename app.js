@@ -68,6 +68,7 @@
       return stops
     }
 
+    $scope.audio = angular.element('audio')[0]
     $scope.play = function(stop, scope) {
       var li = angular.element(event.target)
       if(li.hasClass('icon play')) {
@@ -77,17 +78,18 @@
       } else {
         while(li[0].nodeName != 'LI') li = li.parent()
       }
-      var audio = li.find('audio')[0]
+      var audioURL = li.attr('src')
 
-      if($scope.playing && !$scope.playing.audio.paused) {
-        $scope.playing.audio.pause()
-        if(audio == $scope.playing.audio) return
+      if($scope.playing && !$scope.audio.paused) {
+        $scope.audio.pause()
+        if($scope.audio.src.match(audioURL)) return
       }
 
-      $scope.playing = {audio: audio, stop: stop, li: li}
-      audio.play()
-      audio.addEventListener('timeupdate', function(event) {
-        var audio = $scope.playing.audio
+      $scope.playing = {stop: stop, li: li}
+      $scope.audio.src = audioURL
+      $scope.audio.play()
+      $scope.audio.addEventListener('timeupdate', function(event) {
+        var audio = $scope.audio
         $scope.playing.li.scope().info = $scope.playing.info = {
           time: audio.currentTime,
           duration: audio.duration,
@@ -95,7 +97,7 @@
         }
         $scope.$apply()
       })
-      audio.addEventListener('ended', function(event) {
+      $scope.audio.addEventListener('ended', function(event) {
         $scope.playing.info = {time: 0}
       })
 
@@ -107,7 +109,7 @@
           if(checkLeaves && $scope.playing.stop == stop.colors[x]) leafIsPlaying = true
         }
 
-        if((leafIsPlaying || $scope.playing.stop == stop) && !$scope.playing.audio.paused) {
+        if((leafIsPlaying || $scope.playing.stop == stop) && !$scope.audio.paused) {
           var _return = returnBoolean ? true : 'playing'
           return _return
         } else {
@@ -117,15 +119,15 @@
 
       $scope.resume = function() {
         if(!$scope.playing) return
-        var audio = $scope.playing.audio
+        var audio = $scope.audio
         audio.paused ? audio.play() : audio.pause()
       }
 
       $scope.restart = function() {
-        $scope.playing.audio.currentTime = 0
+        $scope.audio.currentTime = 0
       }
       $scope.scrub = function(delta) {
-        $scope.playing.audio.currentTime += delta
+        $scope.audio.currentTime += delta
       }
     }
 

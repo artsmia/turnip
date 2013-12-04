@@ -36,6 +36,7 @@
 </aside>
 
 <article ng-controller="tourCtrl" ng-if="showTour && inApp" ng-cloak>
+  <audio></audio>
   <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
     <h2><em>{{$index}}</em> {{stop.name}}</h2>
     <div>
@@ -51,10 +52,9 @@
       </div>
 
       <ul>
-        <li ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
+        <li ng-src="{{mp3_location}}{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
           <span class="icon play"><a href="#"></a></span>
           <strong ng-bind="stop.name"></strong>
-          <audio ng-src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio>
         </li>
       </ul>
     </div>
