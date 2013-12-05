@@ -1,0 +1,29 @@
+<article>
+  <audio></audio>
+  <section ng-repeat="stop in tour.stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
+    <h2><em>{{$index}}</em> {{stop.name}}</h2>
+    <div>
+      <div class="now-playing">
+        <a class="restart" ng-click="restart()"><img src="img/restart.svg" alt="Restart this stop"></a>
+        <a class="jump-back" ng-click="scrub(-5)"><img src="img/back-5-seconds.png" alt="back 5 seconds"></a>
+        <div class="orb">
+          <orbicular progress="playing.info.time" total="playing.info.duration">
+            <span ng-click="play()" class="icon play"><a href="#"></a></span>
+          </orbicular>
+        </div>
+        <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
+      </div>
+
+      <ul>
+        <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
+          <span class="icon play"><a href="#"></a></span>
+          <strong ng-bind="stop.name"></strong>
+          <!-- <audio ng-src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio> -->
+        </li>
+      </ul>
+    </div>
+  </section>
+</article>
+</body>
+</html>
+

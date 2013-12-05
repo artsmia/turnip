@@ -8,7 +8,9 @@
   <title>Audacious Eye Audio Tour</title>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js"></script>
+  <script src="components/angular/angular.min.js"></script>
+  <script src="components/angular-route/angular-route.min.js"></script>
+  <script src="components/angular-touch/angular-touch.min.js"></script>
   <script src="components/orbicular/orbicular/orbicular.js"></script>
   <script src="app.js"></script>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
@@ -17,7 +19,7 @@
   <script type="text/javascript" src="http://use.typekit.net/jkg2ird.js"></script>
   <script type="text/javascript"> try{ Typekit.load(); } catch(e){ } </script>
 </head>
-<body ng-app="turnip" ng-controller="turnipCtrl">
+<body ng-app="turnip">
 <header>
   <nav>
     <a href="//new.artsmia.org/" id="menu"><img src="logo.svg" alt="MIA Logo"></a>
@@ -25,40 +27,5 @@
   <h1>The Audacious Eye</h1>
 </header>
 
-<aside class="promo" ng-if="!showTour || !inApp">
-  <h2 style="text-align: center">Take the tour with you</h2>
+<div ng-view></div>
 
-  <p>Get more from your visit with this insightful 13-stop exhibition audio guide. The tour is in numerical order, but you can listen to the stops in any order. Many of the works have more than one audio stop that provides additional layers of information.</p>
-  <p>The Audacious Eye presents more than 100 highlights of the legendary Clark Collections of Japanese art, recently acquired by the MIA.</p>
-  <p>This tour is available both for rental on a handheld device and via $1.99 in-app purchase on iOS and Android.</p>
-  <p id="call-to-action"><a class="btn mia-blue rounded" ng-href="{{tourLink}}">Launch Tour</a></p>
-  <restore-purchases></restore-purchases>
-</aside>
-
-<article ng-controller="tourCtrl" ng-if="showTour && inApp" ng-cloak>
-  <audio></audio>
-  <section ng-repeat="stop in stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
-    <h2><em>{{$index}}</em> {{stop.name}}</h2>
-    <div>
-      <div class="now-playing">
-        <a class="restart" ng-click="restart()"><img src="img/restart.svg" alt="Restart this stop"></a>
-        <a class="jump-back" ng-click="scrub(-5)"><img src="img/back-5-seconds.png" alt="back 5 seconds"></a>
-        <div class="orb">
-          <orbicular progress="playing.info.time" total="playing.info.duration">
-            <span ng-click="play()" class="icon play"><a href="#"></a></span>
-          </orbicular>
-        </div>
-        <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
-      </div>
-
-      <ul>
-        <li ng-src="{{mp3_location}}{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
-          <span class="icon play"><a href="#"></a></span>
-          <strong ng-bind="stop.name"></strong>
-        </li>
-      </ul>
-    </div>
-  </section>
-</article>
-</body>
-</html>
