@@ -1,4 +1,4 @@
-<article ng-if="showTour">
+<article>
   <audio></audio>
   <section ng-repeat="stop in tour.stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
     <h2><em>{{$index}}</em> {{stop.name}}</h2>

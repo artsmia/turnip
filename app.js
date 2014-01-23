@@ -83,6 +83,9 @@
 
     $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/#/audacious-eye-tour" : storeLink
 
+    // If we can't show the full tour, clip `stops` to just the first two
+    if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)
+
     $scope.activeStop = 0
     $scope.activateStop = function(index) {
       $scope.activeStop = index
