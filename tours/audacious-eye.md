@@ -21,7 +21,7 @@ stops:
     speaker: Andreas Marks
     length: '1:57'
     colors:
-      green: 
+      green:
         file: '001G'
         name: How was it made?
         speaker: Andreas Marks
@@ -40,7 +40,7 @@ stops:
   -
     id: 2
     file: '002'
-    name: Descent of Jizō Bosatsu 
+    name: Descent of Jizō Bosatsu
     accession: 1992.001.CF
     more: Descent of Jizō Bosatsu; 14th cent., first half;
     speaker: Pat Graham
@@ -251,7 +251,7 @@ stops:
     id: 11
     file: '011'
     name: Landscape
-    accession: 
+    accession:
     speaker: Rhiannon Paget
     length: ':57'
     colors:
@@ -288,7 +288,7 @@ stops:
   -
     id: 13
     file: '013'
-    name: Rise 
+    name: Rise
     accession: 2006.031a-b.CF; Fukami Sueharu
     speaker: Bill Clark
     length: '2:10'

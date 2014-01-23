@@ -183,5 +183,3 @@ provides additional layers of information.
 
 This tour is available both for rental on a handheld device and via
 $1.99 in-app purchase on iOS and Android.
-
-
