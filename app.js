@@ -16,7 +16,7 @@
         resolve: {
           tour: function($q, $http, $route) {
             var d = $q.defer();
-            $http.get('/'+$route.current.params.id.replace('-tour', '')+'.json').then(function(response) {
+            $http.get('/tours/'+$route.current.params.id.replace('-tour', '')+'.json').then(function(response) {
               d.resolve(response.data)
             }, function err(reason) {
               d.reject(reason);
@@ -35,15 +35,8 @@
     }
   })
 
-  app.controller('turnipCtrl', function($scope) {
-    $scope.tourUrl = '/audacious-eye-tour'
-    $scope.showTour = !!window.location.pathname.match($scope.tourUrl)
-    $scope.inApp = true || navigator.userAgent.match(/org.artsmia.(\w+)/)
-    var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
-      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
-      'https://play.google.com/store/apps/details?id=org.artsmia.android'
-
-    $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/#/audacious-eye-tour" : storeLink
+  app.controller('turnipCtrl', function($scope, $rootScope) {
+    $rootScope.pageTitle = "Take the tour with you"
   })
 
   app.directive('restorePurchases', function() {
@@ -76,10 +69,19 @@
     }
   })
 
-  app.controller('tourCtrl', function($scope, tour) {
-    console.log('tourCtrl', arguments)
-    window.$scope = $scope
+  app.controller('tourCtrl', function($scope, $rootScope, $sce, tour) {
     $scope.tour = tour
+    $scope.tour.trustedContent = $sce.trustAsHtml($scope.tour.content)
+    $rootScope.pageTitle = tour.title
+
+    $scope.tourUrl = '/audacious-eye-tour'
+    $scope.showTour = !tour.paid || !!window.location.pathname.match($scope.tourUrl)
+    $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
+    var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
+      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
+      'https://play.google.com/store/apps/details?id=org.artsmia.android'
+
+    $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/#/audacious-eye-tour" : storeLink
 
     $scope.activeStop = 0
     $scope.activateStop = function(index) {

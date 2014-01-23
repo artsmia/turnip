@@ -1,0 +1,8 @@
+{
+  "url": "{{ page.url }}",
+  "mp3_location": "{{ page.mp3_location }}",
+  "title": "{{ page.title }}",
+  "stops": {{ page.stops | jsonify }},
+  "paid": {{page.paid | jsonify}},
+  "content": {{ page.content | markdownify | jsonify }}
+}

@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="turnip">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <title ng-bind-template="{{tour.name || 'MIA Audio'}}" >MIA Audio Tours</title>
+  <title>{{ page.title }}</title>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="components/angular/angular.min.js"></script>
-  <script src="components/angular-route/angular-route.min.js"></script>
-  <script src="components/angular-touch/angular-touch.min.js"></script>
-  <script src="components/orbicular/orbicular/orbicular.js"></script>
-  <script src="app.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js"></script>
+  <script src="/components/orbicular/orbicular/orbicular.js"></script>
+  <script src="/app.js"></script>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
-  <link rel="stylesheet" href="orbicular.css">
-  <link rel="stylesheet" href="audio-tour.css">
+  <link rel="stylesheet" href="/orbicular.css">
+  <link rel="stylesheet" href="/audio-tour.css">
   <script type="text/javascript" src="http://use.typekit.net/jkg2ird.js"></script>
   <script type="text/javascript"> try{ Typekit.load(); } catch(e){ } </script>
 </head>
-<body>
+<body ng-app="turnip" ng-controller="turnipCtrl">
+
 <header>
   <nav>
-    <a href="/" id="menu"><img src="logo.svg" alt="MIA Logo"></a>
+    <a href="/" id="menu">&#9776;</a>
+    <img src="/logo.svg" alt="MIA Logo">
+    <span>&#9906;</span>
   </nav>
-  <h1 ng-bind="pageTitle"></h1>
+  <h1>{{page.title}}</h1>
 </header>
-
-<div ng-view></div>
-
+{{ content }}
 </body>
 </html>

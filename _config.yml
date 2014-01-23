@@ -1,0 +1,5 @@
+name: Your New Jekyll Site
+markdown: redcarpet
+pygments: true
+exclude: ['audacious-eye-tour', 'matisse-tour']
+permalink: /:title.json
