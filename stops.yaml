@@ -15,7 +15,11 @@ stops:
     speaker: Andreas Marks
     length: '1:57'
     colors:
+<<<<<<< HEAD
       green: 
+=======
+      green:
+>>>>>>> WIP: jekyll, tours in tours/*.md
         file: '001G'
         name: How was it made?
         speaker: Andreas Marks
@@ -34,7 +38,11 @@ stops:
   -
     id: 2
     file: '002'
+<<<<<<< HEAD
     name: Descent of Jizō Bosatsu 
+=======
+    name: Descent of Jizō Bosatsu
+>>>>>>> WIP: jekyll, tours in tours/*.md
     accession: 1992.001.CF
     more: Descent of Jizō Bosatsu; 14th cent., first half;
     speaker: Pat Graham
@@ -245,7 +253,11 @@ stops:
     id: 11
     file: '011'
     name: Landscape
+<<<<<<< HEAD
     accession: 
+=======
+    accession:
+>>>>>>> WIP: jekyll, tours in tours/*.md
     speaker: Rhiannon Paget
     length: ':57'
     colors:

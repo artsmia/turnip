@@ -12,7 +12,7 @@
       })
       .when('/:id', {
         templateUrl: 'views/tour.html',
-        controller: 'tourCtrl', 
+        controller: 'tourCtrl',
         resolve: {
           tour: function($q, $http, $route) {
             var d = $q.defer();
