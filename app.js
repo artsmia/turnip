@@ -74,14 +74,14 @@
     $scope.tour.trustedContent = $sce.trustAsHtml($scope.tour.content)
     $rootScope.pageTitle = tour.title
 
-    $scope.tourUrl = '/audacious-eye-tour'
+    $scope.tourUrl = '/matisse'
     $scope.showTour = !tour.paid || !!window.location.pathname.match($scope.tourUrl)
     $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
     var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
       'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
       'https://play.google.com/store/apps/details?id=org.artsmia.android'
 
-    $scope.tourLink = $scope.inApp ? "/audacious-eye-tour/#/audacious-eye-tour" : storeLink
+    $scope.tourLink = $scope.inApp ? "/matisse-tour/#/matisse-tour" : storeLink
 
     // If we can't show the full tour, clip `stops` to just the first two
     if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)

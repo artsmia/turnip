@@ -1,5 +1,5 @@
 name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
-exclude: ['audacious-eye-tour', 'matisse-tour']
+exclude: ['audacious-eye-tour', 'matisse-tour', 'files']
 permalink: /:title.json
