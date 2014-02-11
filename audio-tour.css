@@ -39,7 +39,7 @@ header span {
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-header h1 {
+header h1, figcaption h2 {
   text-align: center;
   padding: 0.5em;
   margin: 0;
@@ -288,4 +288,15 @@ button[class*="btn"] {border: 0;}
 	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
 	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
 	position: relative;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figcaption h2 {
+  margin-top: -3px;
+}
+#main a {
+  text-decoration: none !important;
 }
