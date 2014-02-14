@@ -4,7 +4,7 @@
   'use strict';
 
   window.app = angular.module('turnip', ['ngRoute', 'ngTouch', 'Orbicular'])
-  app.config(function($routeProvider) {
+  app.config(function($routeProvider, $compileProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -25,6 +25,9 @@
           }
         }
       })
+    // allow artsmia:// URLs
+    // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|artsmia):/);
   })
 
   app.filter('secondsToTime', function() {
