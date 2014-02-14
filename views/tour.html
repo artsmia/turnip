@@ -28,7 +28,7 @@
 <aside class="promo">
   <div ng-bind-html="tour.trustedContent"></div>
   <div ng-if="!showTour && !inApp">
-    <p id="call-to-action"><a class="btn mia-blue rounded" ng-href="{{tourLink}}">Launch Tour</a></p>
+    <p id="call-to-action"><a class="btn mia-blue rounded" ng-href="{{tourLink}}" ng-click="openAppOrStore($event)">Launch Tour</a></p>
     <restore-purchases></restore-purchases>
   </div>
 </aside>

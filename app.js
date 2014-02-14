@@ -80,11 +80,21 @@
     $scope.tourUrl = '/matisse'
     $scope.showTour = !tour.paid || !!window.location.pathname.match($scope.tourUrl)
     $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
-    var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
-      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
-      'https://play.google.com/store/apps/details?id=org.artsmia.android'
+    var storeLink = navigator.userAgent.match(/iPhone|iPad/) &&
+      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' ||
+      navigator.userAgent.match(/Android/) &&
+      'https://play.google.com/store/apps/details?id=org.artsmia.android' || ''
+
 
     $scope.tourLink = $scope.inApp ? "/matisse-tour/#/matisse-tour" : storeLink
+    $scope.openAppOrStore = function(event) {
+      if(!$scope.inApp && navigator.userAgent.match(/iPhone|iPad/)) {
+        event.preventDefault()
+        window.location = 'artsmia://audio';
+        setTimeout(function() { window.location = storeLink }, 10)
+      }
+    }
+
 
     // If we can't show the full tour, clip `stops` to just the first two
     if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)
