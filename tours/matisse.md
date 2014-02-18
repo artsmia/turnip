@@ -359,5 +359,5 @@ guide. The tour is in numerical order, but you can listen to the stops
 in any order. Many of the works have more than one audio stop that
 provides additional layers of information.
 
-This tour is available both for rental on a handheld device and via
-$1.99 in-app purchase on iOS and Android.
+This tour is available for $6 ($5 for members) via handheld device
+rental on site, or for $1.99 via in-app purchase on iOS and Android.
