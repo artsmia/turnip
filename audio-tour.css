@@ -136,6 +136,12 @@ li .icon.play {
 .playing .now-playing .icon.play {
   margin-right: 0.55em;
 }
+@media only screen and (max-device-width: 1024px) {
+  .playing .now-playing .icon.play {
+    margin-right: 0.58em;
+  }
+}
+
 
 section div > .now-playing {
   margin: 0 auto;
