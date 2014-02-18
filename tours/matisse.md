@@ -349,12 +349,10 @@ stops:
         length: '1:39'
 ---
 
-Behold vivid, shockingly bold work by a 20th-century master of color,
-shape, and balance. Spanning six decades of Matisse’s prolific career, with an emphasis on
-the artist’s earliest works, this special exhibition features 50 works
-of painting and sculpture, 30 prints, and the artist’s book Jazz.
+Enrich your experience with illuminating curator commentary and stories
+about Matisse.
 
-Get more from your visit with this insightful 13-stop exhibition audio
+Get more from your visit with this insightful 15-stop exhibition audio
 guide. The tour is in numerical order, but you can listen to the stops
 in any order. Many of the works have more than one audio stop that
 provides additional layers of information.
