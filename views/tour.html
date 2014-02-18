@@ -18,6 +18,7 @@
         <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
           <span class="icon play"><a href="#"></a></span>
           <strong ng-bind="stop.name"></strong>
+          <span ng-if="playing.stop == stop" class="speaker" ng-bind="stop.speaker"></span>
           <!-- <audio ng-src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio> -->
         </li>
       </ul>
