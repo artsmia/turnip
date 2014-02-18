@@ -191,9 +191,10 @@ div.co-circle-progress > div.bg {
 }
 
 aside #restore {
-  width: 20em;
+  width: 100%;
   display: block;
   margin: 1em auto;
+  text-align: center;
 }
 
 /* buttons

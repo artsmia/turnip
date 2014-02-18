@@ -47,27 +47,15 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: '<a href="#" id="restore" ng-click="restorePurchases()">Restore Purchases</a>',
-      // controller: function($scope) {
-      // },
+      template: '<a href="#" id="restore" ng-click="restorePurchases($event)">Restore Purchases</a>',
       link: function(scope, element, attrs) {
-        var sendCommand = function(command) {
-          if(scope.Android) {
-            eval("AndroidArtsMIA." + command + "()")
-          } else if(scope.iOS) {
-            window.location = "artsmia://" + command
-          } else {
-            console && console.info('sending command', command)
-          }
-        }
-        scope.restorePurchases = function() {
-          sendCommand('restorePurchases')
+        scope.restorePurchases = function(event) {
+          event.preventDefault()
+          window.location = "artsmia://restorePurchases"
         }
 
-        scope.Android = !(navigator.userAgent.match(/org.artsmia.android/i) == null);
         scope.iOS = !(navigator.userAgent.match(/org.artsmia.ios/i) == null);
-        scope.inApp = scope.Android || scope.iOS
-        if(!scope.iOS) element.remove() // TODO: throw down a paywall?
+        if(!scope.iOS) element.remove()
       }
     }
   })
