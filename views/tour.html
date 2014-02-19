@@ -8,14 +8,14 @@
         <a class="jump-back" ng-click="scrub(-5)"><img src="img/back-5-seconds.png" alt="back 5 seconds"></a>
         <div class="orb">
           <orbicular progress="playing.info.time" total="playing.info.duration">
-            <span ng-click="play()" class="icon play"><a href="#"></a></span>
+            <span ng-click="play(null, $event)" class="icon play"><a href="#"></a></span>
           </orbicular>
         </div>
         <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
       </div>
 
       <ul>
-        <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
+        <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop, $event)">
           <span class="icon play"><a href="#"></a></span>
           <strong ng-bind="stop.name"></strong>
           <span ng-if="playing.stop == stop" class="speaker" ng-bind="stop.speaker"></span>

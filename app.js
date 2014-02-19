@@ -100,7 +100,7 @@
 
     window.$scope = $scope
     $scope.audio = angular.element('audio')[0]
-    $scope.play = function(stop, scope) {
+    $scope.play = function(stop, event) {
       var li = angular.element(event.target)
       if(li.hasClass('icon play')) {
         // beware, jquery
