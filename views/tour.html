@@ -1,6 +1,6 @@
 <article>
   <audio></audio>
-  <section ng-repeat="stop in tour.stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
+  <section ng-repeat="stop in tour.stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index, stop)">
     <h2><em>{{$index+1}}</em> {{stop.name}}</h2>
     <div>
       <div class="now-playing">
@@ -31,8 +31,8 @@
   <div class="desktop-only" ng-if="!tourLink">
     <p>Prepare for the tour before your visit by downloading the MIA's app to your mobile device here:</p>
     <p>
-      <a href="https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081?mt=8&uo=4" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);}"></a>
-      <a href="https://play.google.com/store/apps/details?id=org.artsmia.android"><img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" /></a>
+      <a id="app-store" href="https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081?mt=8&uo=4" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);}"></a>
+      <a id="android-store" href="https://play.google.com/store/apps/details?id=org.artsmia.android"><img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" /></a>
     </p>
   </div>
   <div ng-if="!showTour && tourLink">

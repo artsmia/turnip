@@ -3,7 +3,7 @@
 (function() {
   'use strict';
 
-  window.app = angular.module('turnip', ['ngRoute', 'ngTouch', 'Orbicular'])
+  window.app = angular.module('turnip', ['ngRoute', 'ngTouch', 'Orbicular', 'segmentio'])
   app.config(function($routeProvider, $compileProvider) {
     $routeProvider
       .when('/', {
@@ -39,8 +39,9 @@
     }
   })
 
-  app.controller('turnipCtrl', function($scope, $rootScope) {
+  app.controller('turnipCtrl', function($scope, $rootScope, segmentio) {
     $rootScope.pageTitle = "Take the tour with you"
+    window.analytics.page('Audio Tours Home', {})
   })
 
   app.directive('restorePurchases', function() {
@@ -61,7 +62,7 @@
     }
   })
 
-  app.controller('tourCtrl', function($scope, $rootScope, $sce, tour) {
+  app.controller('tourCtrl', function($scope, $rootScope, $sce, tour, segmentio) {
     $scope.tour = tour
     $scope.tour.trustedContent = $sce.trustAsHtml($scope.tour.content)
     $rootScope.pageTitle = tour.title
@@ -74,7 +75,6 @@
       navigator.userAgent.match(/Android/) &&
       'https://play.google.com/store/apps/details?id=org.artsmia.android' || ''
 
-
     $scope.tourLink = $scope.inApp ? "/matisse-tour/#/matisse-tour" : storeLink
     $scope.openAppOrStore = function(event) {
       if(!$scope.inApp && navigator.userAgent.match(/iPhone|iPad/)) {
@@ -84,13 +84,17 @@
       }
     }
 
-
     // If we can't show the full tour, clip `stops` to just the first two
     if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)
 
+    window.analytics.page(tour.title, {inApp: $scope.inApp, showFullTour: $scope.showTour})
+
     $scope.activeStop = 0
-    $scope.activateStop = function(index) {
-      $scope.activeStop = index
+    $scope.activateStop = function(index, stop) {
+      if($scope.activeStop != index) {
+        $scope.activeStop = index
+        segmentio.track('Opened stop', {label: index+1 +' - '+stop.name, category: $scope.tour.title})
+      }
     }
 
     $scope.mainAndColors = function(stop) {
@@ -110,16 +114,30 @@
       } else {
         while(li[0].nodeName != 'LI') li = li.parent()
       }
-      var audioURL = $scope.tour.mp3_location + li.attr('data-audio')
+      var audioURL = $scope.tour.mp3_location + li.attr('data-audio'),
+          stopIdForAnalytics = stop.file + ' - ' + stop.name
+
+      $scope.lastPlayedStop = stop
 
       if($scope.playing && !$scope.audio.paused) {
         $scope.audio.pause()
-        if($scope.audio.src.match(audioURL)) return
+        if($scope.audio.src.match(audioURL))
+          return segmentio.track('Paused', {label: stopIdForAnalytics, category: $scope.tour.title})
+      }
+
+      if($scope.playing && $scope.lastPlayedStop && $scope.audio.src.split('/').slice(-1)[0] != li.attr('data-audio')) {
+        // abandoning one track for another
+        segmentio.track('Abandoned', {
+          label: $scope.lastPlayedStop.file+' - '+$scope.lastPlayedStop.name,
+          value: Math.floor($scope.audio.currentTime),
+          category: $scope.tour.title
+        })
       }
 
       $scope.playing = {stop: stop, li: li}
       if(!$scope.audio.src.match(audioURL)) $scope.audio.src = audioURL
       $scope.audio.play()
+      segmentio.track('Playing', {label: stopIdForAnalytics, category: $scope.tour.title})
       $scope.audio.addEventListener('timeupdate', function(event) {
         var audio = $scope.audio
         $scope.playing.li.scope().info = $scope.playing.info = {
@@ -129,8 +147,10 @@
         }
         $scope.$apply()
       })
+
       $scope.audio.addEventListener('ended', function(event) {
         $scope.playing.info = {time: 0}
+        segmentio.track('Finished', {label: stopIdForAnalytics, noninteraction: true, category: $scope.tour.title})
       })
 
       $scope.isPlayingClass = function(stop, returnBoolean, checkLeaves) {
@@ -160,7 +180,15 @@
       }
       $scope.scrub = function(delta) {
         $scope.audio.currentTime += delta
+        segmentio.track('Scrubbed track', {label: stopIdForAnalytics, value: delta, category: $scope.tour.title})
       }
+    }
+
+    if(!$scope.tourLink) {
+      setTimeout(function() {
+        segmentio.trackLink($('#app-store'), 'Clicked App Store Link')
+        segmentio.trackLink($('#android-store'), 'Clicked Android Store Link')
+      }, 1000)
     }
   })
 })()
