@@ -10,7 +10,7 @@ stops:
     file: '001'
     name: Narrarator's Introduction and Welcome
     more:
-    speaker: Eric Bruce and Kaywin Feldman, Director & President, MIA
+    speaker: Eric Bruce and Kaywin Feldman
     length: '3:08'
 
   -
@@ -352,10 +352,10 @@ stops:
 Enrich your experience with illuminating curator commentary and stories
 about Matisse.
 
-Get more from your visit with this insightful 15-stop exhibition audio
-guide. The tour is in numerical order, but you can listen to the stops
-in any order. Many of the works have more than one audio stop that
-provides additional layers of information.
+The first two stops are available as a free preview. The full tour
+features fifteen stops (and approximately nintey minutes) of insight
+from expert scholars.
 
 This tour is available for $6 ($5 for members) via handheld device
-rental on site, or for $1.99 via in-app purchase on iOS and Android.
+rental on site. If you have a compatible smartphone, it's also
+available as a $1.99 in-app purchase on iOS and Android.
