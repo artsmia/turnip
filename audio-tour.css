@@ -308,7 +308,13 @@ figcaption h2 {
   text-decoration: none !important;
 }
 
-.desktop-only p a:last-child { float: right; margin-right: 0.5em; }
+.desktop-only {
+  padding-bottom: 0.5em;
+}
+.desktop-only p a:last-child {
+  float: right;
+  margin-right: 0.5em;
+}
 
 @media only screen and (min-width : 480px) {
   html { background-color: #333; }
