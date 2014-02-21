@@ -11,7 +11,7 @@
             <span ng-click="play(null, $event)" class="icon play"><a href="#"></a></span>
           </orbicular>
         </div>
-        <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
+        <span ng-if="playing && playing.info.time" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
       </div>
 
       <ul>

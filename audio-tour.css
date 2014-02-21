@@ -132,6 +132,12 @@ section:last-child.active {
 li .icon.play {
   margin-top: 0.15em;
 }
+li.playing .icon.play {
+  display: none;
+}
+li.playing .speaker {
+  margin-left: 0.25em;
+}
 .now-playing .icon {
   display: -webkit-box;
   font-size: 48%;

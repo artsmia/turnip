@@ -32,6 +32,7 @@
 
   app.filter('secondsToTime', function() {
     return function(seconds, args) {
+      if(!seconds) return
       var m = Math.floor(seconds/60), s = Math.floor(seconds%60),
       string = seconds ? m + ':' + ("0" + s).slice(-2) : '0:00'
       return string
@@ -117,7 +118,7 @@
       }
 
       $scope.playing = {stop: stop, li: li}
-      $scope.audio.src = audioURL
+      if(!$scope.audio.src.match(audioURL)) $scope.audio.src = audioURL
       $scope.audio.play()
       $scope.audio.addEventListener('timeupdate', function(event) {
         var audio = $scope.audio
@@ -140,7 +141,7 @@
           if(checkLeaves && $scope.playing.stop == stop.colors[x]) leafIsPlaying = true
         }
 
-        if((leafIsPlaying || $scope.playing.stop == stop) && !$scope.audio.paused) {
+        if((leafIsPlaying || $scope.playing.stop == stop)) {
           var _return = returnBoolean ? true : 'playing'
           return _return
         } else {
