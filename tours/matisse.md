@@ -353,7 +353,7 @@ Enrich your experience with illuminating curator commentary and stories
 about Matisse.
 
 The first two stops are available as a free preview. The full tour
-features fifteen stops (and approximately nintey minutes) of insight
+features 15 stops (and approximately 90 minutes) of insight
 from expert scholars.
 
 This tour is available for $6 ($5 for members) via handheld device
