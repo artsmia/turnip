@@ -1,23 +1,24 @@
 <article>
   <audio></audio>
   <section ng-repeat="stop in tour.stops" class="stop" ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true)}" ng-click="activateStop($index)">
-    <h2><em>{{$index}}</em> {{stop.name}}</h2>
+    <h2><em>{{$index+1}}</em> {{stop.name}}</h2>
     <div>
       <div class="now-playing">
         <a class="restart" ng-click="restart()"><img src="img/restart.svg" alt="Restart this stop"></a>
         <a class="jump-back" ng-click="scrub(-5)"><img src="img/back-5-seconds.png" alt="back 5 seconds"></a>
         <div class="orb">
           <orbicular progress="playing.info.time" total="playing.info.duration">
-            <span ng-click="play()" class="icon play"><a href="#"></a></span>
+            <span ng-click="play(null, $event)" class="icon play"><a href="#"></a></span>
           </orbicular>
         </div>
-        <span ng-if="playing" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
+        <span ng-if="playing && playing.info.time" class="timing">{{playing.info.time | secondsToTime }}/{{playing.info.duration | secondsToTime }}</span>
       </div>
 
       <ul>
-        <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop)">
+        <li data-audio="{{stop.file}}.mp3" ng-repeat="(color, stop) in mainAndColors(stop)" ng-class="[color, isPlayingClass(stop, false, false)]" ng-click="play(stop, $event)">
           <span class="icon play"><a href="#"></a></span>
           <strong ng-bind="stop.name"></strong>
+          <span ng-if="playing.stop == stop" class="speaker" ng-bind="stop.speaker"></span>
           <!-- <audio ng-src="{{mp3_location}}{{stop.file}}.mp3" preload="none"></audio> -->
         </li>
       </ul>
@@ -27,8 +28,15 @@
 
 <aside class="promo">
   <div ng-bind-html="tour.trustedContent"></div>
-  <div ng-if="!showTour && !inApp">
-    <p id="call-to-action"><a class="btn mia-blue rounded" ng-href="{{tourLink}}">Launch Tour</a></p>
+  <div class="desktop-only" ng-if="!tourLink">
+    <p>Prepare for the tour before your visit by downloading the MIA's app to your mobile device here:</p>
+    <p>
+      <a href="https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081?mt=8&uo=4" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);}"></a>
+      <a href="https://play.google.com/store/apps/details?id=org.artsmia.android"><img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" /></a>
+    </p>
+  </div>
+  <div ng-if="!showTour && tourLink">
+    <p id="call-to-action"><a class="btn mia-blue rounded" ng-href="{{tourLink}}" ng-click="openAppOrStore($event)">Launch Tour</a></p>
     <restore-purchases></restore-purchases>
   </div>
 </aside>

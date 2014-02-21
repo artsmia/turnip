@@ -84,6 +84,10 @@ section.active div {
   display: block;
 }
 
+section:last-child.active {
+  border-bottom: 0.5em solid #3b3b3b;
+}
+
 .stop ul {
   clear: both;
   list-style: none;
@@ -128,6 +132,12 @@ section.active div {
 li .icon.play {
   margin-top: 0.15em;
 }
+li.playing .icon.play {
+  display: none;
+}
+li.playing .speaker {
+  margin-left: 0.25em;
+}
 .now-playing .icon {
   display: -webkit-box;
   font-size: 48%;
@@ -136,6 +146,12 @@ li .icon.play {
 .playing .now-playing .icon.play {
   margin-right: 0.55em;
 }
+@media only screen and (max-device-width: 1024px) {
+  .playing .now-playing .icon.play {
+    margin-right: 0.58em;
+  }
+}
+
 
 section div > .now-playing {
   margin: 0 auto;
@@ -191,9 +207,10 @@ div.co-circle-progress > div.bg {
 }
 
 aside #restore {
-  width: 20em;
+  width: 100%;
   display: block;
   margin: 1em auto;
+  text-align: center;
 }
 
 /* buttons
@@ -299,4 +316,17 @@ figcaption h2 {
 }
 #main a {
   text-decoration: none !important;
+}
+
+.desktop-only {
+  padding-bottom: 0.5em;
+}
+.desktop-only p a:last-child {
+  float: right;
+  margin-right: 0.5em;
+}
+
+@media only screen and (min-width : 480px) {
+  html { background-color: #333; }
+  body { min-height: 100vh; }
 }

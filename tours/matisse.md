@@ -10,7 +10,7 @@ stops:
     file: '001'
     name: Narrarator's Introduction and Welcome
     more:
-    speaker: Eric Bruce and Kaywin Feldman, Director & President, MIA
+    speaker: Eric Bruce and Kaywin Feldman
     length: '3:08'
 
   -
@@ -294,6 +294,11 @@ stops:
         name: Matisse on the impulse to create
         speaker: Matisse (Dominique Serrand)
         length: '0:57'
+      yellow:
+        file: '013Y'
+        name: Never Again
+        speaker: '1:36'
+        length: '0:57'
 
   -
     id: 14
@@ -344,15 +349,13 @@ stops:
         length: '1:39'
 ---
 
-Behold vivid, shockingly bold work by a 20th-century master of color,
-shape, and balance. Spanning six decades of Matisse’s prolific career, with an emphasis on
-the artist’s earliest works, this special exhibition features 50 works
-of painting and sculpture, 30 prints, and the artist’s book Jazz.
+Enrich your experience with illuminating curator commentary and stories
+about Matisse.
 
-Get more from your visit with this insightful 13-stop exhibition audio
-guide. The tour is in numerical order, but you can listen to the stops
-in any order. Many of the works have more than one audio stop that
-provides additional layers of information.
+The first two stops are available as a free preview. The full tour
+features 15 stops (and approximately 90 minutes) of insight
+from expert scholars.
 
-This tour is available both for rental on a handheld device and via
-$1.99 in-app purchase on iOS and Android.
+This tour is available for $6 ($5 for members) via handheld device
+rental on site. If you have a compatible smartphone, it's also
+available as a $1.99 in-app purchase on iOS and Android.

@@ -4,7 +4,7 @@
   'use strict';
 
   window.app = angular.module('turnip', ['ngRoute', 'ngTouch', 'Orbicular'])
-  app.config(function($routeProvider) {
+  app.config(function($routeProvider, $compileProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -25,10 +25,14 @@
           }
         }
       })
+    // allow artsmia:// URLs
+    // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|artsmia):/);
   })
 
   app.filter('secondsToTime', function() {
     return function(seconds, args) {
+      if(!seconds) return
       var m = Math.floor(seconds/60), s = Math.floor(seconds%60),
       string = seconds ? m + ':' + ("0" + s).slice(-2) : '0:00'
       return string
@@ -44,27 +48,15 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: '<a href="#" id="restore" ng-click="restorePurchases()">Restore Purchases</a>',
-      // controller: function($scope) {
-      // },
+      template: '<a href="#" id="restore" ng-click="restorePurchases($event)">Restore Purchases</a>',
       link: function(scope, element, attrs) {
-        var sendCommand = function(command) {
-          if(scope.Android) {
-            eval("AndroidArtsMIA." + command + "()")
-          } else if(scope.iOS) {
-            window.location = "artsmia://" + command
-          } else {
-            console && console.info('sending command', command)
-          }
-        }
-        scope.restorePurchases = function() {
-          sendCommand('restorePurchases')
+        scope.restorePurchases = function(event) {
+          event.preventDefault()
+          window.location = "artsmia://restorePurchases"
         }
 
-        scope.Android = !(navigator.userAgent.match(/org.artsmia.android/i) == null);
         scope.iOS = !(navigator.userAgent.match(/org.artsmia.ios/i) == null);
-        scope.inApp = scope.Android || scope.iOS
-        if(!scope.iOS) element.remove() // TODO: throw down a paywall?
+        if(!scope.iOS) element.remove()
       }
     }
   })
@@ -77,11 +69,21 @@
     $scope.tourUrl = '/matisse'
     $scope.showTour = !tour.paid || !!window.location.pathname.match($scope.tourUrl)
     $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
-    var storeLink = navigator.userAgent.match(/iPhone|iPad/) ?
-      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' :
-      'https://play.google.com/store/apps/details?id=org.artsmia.android'
+    var storeLink = navigator.userAgent.match(/iPhone|iPad/) &&
+      'https://itunes.apple.com/us/app/minneapolis-institute-arts/id494412081' ||
+      navigator.userAgent.match(/Android/) &&
+      'https://play.google.com/store/apps/details?id=org.artsmia.android' || ''
+
 
     $scope.tourLink = $scope.inApp ? "/matisse-tour/#/matisse-tour" : storeLink
+    $scope.openAppOrStore = function(event) {
+      if(!$scope.inApp && navigator.userAgent.match(/iPhone|iPad/)) {
+        event.preventDefault()
+        window.location = 'artsmia://audio';
+        setTimeout(function() { window.location = storeLink }, 10)
+      }
+    }
+
 
     // If we can't show the full tour, clip `stops` to just the first two
     if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)
@@ -99,7 +101,7 @@
 
     window.$scope = $scope
     $scope.audio = angular.element('audio')[0]
-    $scope.play = function(stop, scope) {
+    $scope.play = function(stop, event) {
       var li = angular.element(event.target)
       if(li.hasClass('icon play')) {
         // beware, jquery
@@ -116,7 +118,7 @@
       }
 
       $scope.playing = {stop: stop, li: li}
-      $scope.audio.src = audioURL
+      if(!$scope.audio.src.match(audioURL)) $scope.audio.src = audioURL
       $scope.audio.play()
       $scope.audio.addEventListener('timeupdate', function(event) {
         var audio = $scope.audio
@@ -139,7 +141,7 @@
           if(checkLeaves && $scope.playing.stop == stop.colors[x]) leafIsPlaying = true
         }
 
-        if((leafIsPlaying || $scope.playing.stop == stop) && !$scope.audio.paused) {
+        if((leafIsPlaying || $scope.playing.stop == stop)) {
           var _return = returnBoolean ? true : 'playing'
           return _return
         } else {
