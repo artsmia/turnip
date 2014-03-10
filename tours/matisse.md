@@ -309,17 +309,17 @@ stops:
     length: '2:10'
     colors:
       green:
-        file: '003G'
+        file: '014G'
         name: Collaborative process
         speaker: Jay Fisher & Matisse (Dominique Serrand)
         length: '3:01'
       red:
-        file: '003R'
+        file: '014R'
         name: Drawing with scissors
         speaker: Jay Fisher & Matisse (Dominique Serrand)
         length: '3:50'
       yellow:
-        file: '003Y'
+        file: '014Y'
         name: Collage to printed book
         speaker: Jay Fisher
         length: '1:18'
