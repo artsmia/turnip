@@ -322,12 +322,12 @@ stops:
         name: Nolde and the Nazi Party
         speaker: Tom Rassieur 
         length:
-
-  -
-    id: 14
-    file: 013
-    name: Funder credits
-    speaker: Kaywin Feldman
 ---
 
-Marks of genius content goes here
+Featuring MIA Director and President Kaywin Feldman, curators
+Rachel McGarry, Tom Rassieur, Dennis Michael Jon, and other scholars
+whose passion and enthusiasm for these works of art are matched by the
+depths of their knowledge. Expect to have your eyes sharpened, your
+knowledge of technique and styles enhanced, your connoisseurship
+elevated, and your sense of wonder and marvel of great drawings filled
+to the brim.
