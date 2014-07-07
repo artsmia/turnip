@@ -3,8 +3,8 @@ components
 .sass-cache
 *.jpg
 audacious-eye-tour
-*.wav
-*.mp3
-*.mp3.zip
+**/*.wav
+**/*.mp3
+**/*.zip
 *.aif
 _site
