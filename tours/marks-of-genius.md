@@ -8,22 +8,22 @@ stops:
   -
     id: 1
     file: '000'
-    name: Narrarator's Introduction
+    name: Narrator's Introduction
     more:
     speaker: Eric Bruce
     length: ':55'
     colors:
       green:
         file: '000G'
-        name: welcome
-        speaker: Keywin Feldman 
+        name: Welcome
+        speaker: Kaywin Feldman
         length: 
 
   -
     id: 2
     file: '001'
-    name: Two Studies of a Woman's Head
-    more: 'Käthe Kollwitz, circa 1903'
+    name: Käthe Kollwitz, Two Studies of a Woman's Head
+    more: 
     accession: 71.65
     tms: 19748
     speaker: Tom Rassieur
@@ -41,14 +41,14 @@ stops:
         length: '1:33'
       yellow:
         file: '001Y'
-        name: use of conte crayon
+        name: Conte crayon
         speaker: Tom Rassieur
         length: ':52'
 
   -
     id: 3
     file: '002'
-    name: Egon Schiele, Standing Girl, c1908-1909
+    name: Egon Schiele, Standing Girl
     more: 
     accession: 69.7
     tms: 1743
@@ -57,24 +57,24 @@ stops:
     colors:
       green:
         file: '002G'
-        name: Rachel insights
+        name: R. McGarry's insights
         speaker: Rachel McGarry
         length: '1:41'
       red:
         file: '002R'
-        name: how art got into collection
+        name: How it came to Minneapolis
         speaker: Tom Rassieur
         length: '1:38'
       yellow:
         file: '002Y'
-        name: birthday story
+        name: Birthday story
         speaker: Tom Rassieur
         length: '1:45'
 
   -
     id: 4
     file: '003'
-    name: Lovis Corinth, Self Portrait c1908
+    name: Lovis Corinth, Self Portrait
     accession: '62.10'
     tms: 18497
     more:
@@ -83,24 +83,24 @@ stops:
     colors:
       green:
         file: '003G'
-        name: a close look
+        name: A close look
         speaker: Tom Rassieur
         length: '1:13'
       red:
         file: '003R'
-        name: brushwork
+        name: Brushwork
         speaker: Tom Rassieur
         length: '1:34'
       yellow:
         file: '003Y'
-        name: self-portraiture
+        name: Self-portraiture
         speaker: Rachel McGarry
         length: '0:35'
 
   -
     id: 5
     file: '004'
-    name: Ludovico Carracci, Judith and Holofernes, c1581-1585
+    name: Ludovico Carracci, Judith and Holofernes
     accession: 2012.58.15
     tms: 33378
     more:
@@ -114,7 +114,7 @@ stops:
         length: ':54'
       red:
         file: '004R'
-        name: Techniques for enlivening scene
+        name: Techniques for enlivening a scene
         speaker: Rachel McGarry
         length: '1:11'
       yellow:
@@ -126,7 +126,7 @@ stops:
   -
     id: 6
     file: '005'
-    name: Jean-François Millet, The Church at Chailly, c1868-1869
+    name: Jean-François Millet, The Church at Chailly
     accession: 67.31.4
     tms: 1637
     speaker: Rachel McGarry
@@ -134,7 +134,7 @@ stops:
     colors:
       green:
         file: '005G'
-        name: in-depth look
+        name: In-depth look
         speaker: Rachel McGarry
         length: '2:15'
       red:
@@ -144,14 +144,14 @@ stops:
         length: '1:35'
       yellow:
         file: '005Y'
-        name: What was on his mind? Cemetery.
+        name: What was on his mind?
         speaker: Rachel McGarry
         length: '1:38'
 
   -
     id: 7
     file: '006'
-    name: Winslow Homer, The Conch Divers, c1885
+    name: Winslow Homer, The Conch Divers
     accession: 15.137
     tms: 10434
     speaker: Marla Kinney
@@ -159,7 +159,7 @@ stops:
     colors:
       green:
         file: '006G'
-        name: composition and interpretation
+        name: Composition and interpretation
         speaker: Marla Kinney
         length: '2:28'
       red:
@@ -176,7 +176,7 @@ stops:
   -
     id: 8
     file: '007'
-    name: Edme Bouchardon, Design for a Token,Marine1744 c1743
+    name: Edme Bouchardon, Design for a Token, Marine
     accession: 82.73
     tms: 3106
     speaker: Rachel McGarry
@@ -201,7 +201,7 @@ stops:
   -
     id: 9
     file: '008'
-    name: Pietro Fancelli,Study for Orpheus and Eurydice (recto);A Bacchanal Procesion (verso),c1800-1810 (story)
+    name: Pietro Fancelli, Study for Orpheus and Eurydice
     accession: 73.35.1a,b
     tms: 19941
     speaker: Rachel McGarry
@@ -209,7 +209,7 @@ stops:
     colors:
       green:
         file: '008G'
-        name: hear dramatic story of Fancelli (background)
+        name: Fancelli's imagination
         speaker: Rachel McGarry
         length: 
       red:
@@ -226,7 +226,7 @@ stops:
   -
     id: 10
     file: '009'
-    name: Amedo Modigliani, Female Bust in Red
+    name: Amedeo Modigliani, Female Bust in Red
     accession: 61.36.22
     tms: 1421
     speaker: Roberta Bartoli
@@ -276,7 +276,7 @@ stops:
   -
     id: 12
     file: '011'
-    name: Guercino (Giovanni Freancesco Barbieri), Hercules, c1641-1642
+    name: Guercino, Hercules
     accession: 2013.23
     tms: 116123
     speaker: Rachel McGarry
@@ -289,19 +289,19 @@ stops:
         length:
       red:
         file: '011R'
-        name: Why Rachel loves this
+        name: Why R. McGarry loves this
         speaker: Rachel McGarry
         length:
       yellow:
         file: '011Y'
-        name: Hercules background story
+        name: Story of Hercules
         speaker: Rachel McGarry
         length:
 
   -
     id: 13
     file: '012'
-    name: Emil Nolde, Heavy Seas at Sunset c
+    name: Emil Nolde, Heavy Seas at Sunset
     accession: 56.4
     tms: 1315
     speaker: Tom Rassieur
