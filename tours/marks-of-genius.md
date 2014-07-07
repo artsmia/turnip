@@ -225,33 +225,33 @@ stops:
 
   -
     id: 10
-    file: '9'
-    name: Amedo Modigliani, Female Bust in Red c1915
+    file: '009'
+    name: Amedo Modigliani, Female Bust in Red
     accession: 61.36.22
     tms: 1421
     speaker: Roberta Bartoli
     length:
     colors:
       green:
-        file: '9G'
+        file: '009G'
         name: Passion for sculpture
         speaker: Roberta Bartoli
         length:
       red:
-        file: '9R'
+        file: '009R'
         name: Artist's life at time
         speaker: Roberta Bartoli
         length:
       yellow:
-        file: '9Y'
-        name: intriguing details
+        file: '009Y'
+        name: Intriguing details
         speaker: Roberta Bartoli
         length:
 
   -
     id: 11
-    file: '10'
-    name: Roy Lichtenstein, Bratatat! C.1962
+    file: '010'
+    name: Roy Lichtenstein, Bratatat!
     accession: 64.75
     tms: 1574
     speaker: Denis Jon

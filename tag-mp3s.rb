@@ -5,7 +5,16 @@ require 'pp'
 require 'mp3info'
 require 'pry'
 require 'json'
-# json = JSON.yaml_as(yaml)
+
+#
+# ruby tag-mp3s.rb <tour> <tag>
+#
+# <tour> is the name of the tour. `tours/<tour>.md` must be the tour listing with all
+# metadata as 'front matter', and `_files/<tour>/` should contain all the MP3 files
+# to be tagged.
+#
+
+TOUR = tour = ARGV[0]
 
 class Stop
   def initialize(yaml)
@@ -29,13 +38,13 @@ class Stop
   # private
 
   def file
-    'AudaciousEye_AudioFiles/MP3/%s.mp3' % @yaml['file'].to_s
+    "_files/#{TOUR}/%s.mp3" % @yaml['file'].to_s
   end
 end
 
-yaml = YAML.load(File.read('stops.yaml'))
+yaml = YAML.load(File.read("tours/#{tour}.md"))
 
-if ARGV[0] == 'tag'
+if ARGV[1] == 'tag'
   yaml['stops'].each do |stop|
     stop = Stop.new(stop)
     stop.tag!
@@ -44,5 +53,6 @@ if ARGV[0] == 'tag'
     end
   end
 else
+  puts ARGV.inspect
   puts JSON.yaml_as(yaml)
 end
