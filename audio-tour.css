@@ -334,3 +334,8 @@ figcaption h2 {
 .stop img {
   max-width: 100%;
 }
+
+.stop.break {
+  margin-top: 1em;
+}
+

@@ -25,6 +25,7 @@ stops:
     accession: 71.65
     tms: 19748
     speaker: Tom Rassieur
+    room: 1
     colors:
       green:
         file: '001G'
@@ -47,6 +48,7 @@ stops:
     accession: 69.7
     tms: 1743
     speaker: Tom Rassieur
+    room: 1
     colors:
       green:
         file: '002G'
@@ -69,6 +71,7 @@ stops:
     tms: 18497
     more:
     speaker: Tom Rassieur
+    room: 1
     colors:
       green:
         file: '003G'
@@ -91,6 +94,7 @@ stops:
     tms: 33378
     more:
     speaker: Rachel McGarry
+    room: 2
     colors:
       green:
         file: '004G'
@@ -112,6 +116,7 @@ stops:
     accession: 67.31.4
     tms: 1637
     speaker: Rachel McGarry
+    room: 2
     colors:
       green:
         file: '005G'
@@ -133,6 +138,7 @@ stops:
     accession: 15.137
     tms: 10434
     speaker: Marla Kinney
+    room: 2
     colors:
       green:
         file: '006G'
@@ -154,6 +160,7 @@ stops:
     accession: 82.73
     tms: 3106
     speaker: Rachel McGarry
+    room: 3
     colors:
       green:
         file: '007G'
@@ -175,6 +182,7 @@ stops:
     accession: 73.35.1a,b
     tms: 19941
     speaker: Rachel McGarry
+    room: 3
     colors:
       green:
         file: '008G'
@@ -196,6 +204,7 @@ stops:
     accession: 61.36.22
     tms: 1421
     speaker: Roberta Bartoli
+    room: 4
     colors:
       green:
         file: '009G'
@@ -217,6 +226,7 @@ stops:
     accession: 64.75
     tms: 1574
     speaker: Denis Jon
+    room: 4
     colors:
       green:
         file: '010G'
@@ -238,6 +248,7 @@ stops:
     accession: 2013.23
     tms: 116123
     speaker: Rachel McGarry
+    room: 5
     colors:
       green:
         file: '011G'
@@ -259,6 +270,7 @@ stops:
     accession: 56.4
     tms: 1315
     speaker: Tom Rassieur
+    room: 5
     colors:
       green:
         file: '012G'
