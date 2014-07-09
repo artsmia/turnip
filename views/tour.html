@@ -5,7 +5,7 @@
     class="stop"
     ng-init="shouldBreakBetweenRooms = $$prevSibling.stop.room != stop.room"
     ng-class="{active: activeStop == $index, playing: isPlayingClass(stop, true), break: shouldBreakBetweenRooms}"
-    ng-click="activateStop($index)"
+    ng-click="activateStop($index, $event)"
   >
     <h2><em>{{$index+1}}</em> {{stop.name}}</h2>
     <div>

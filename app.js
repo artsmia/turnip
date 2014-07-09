@@ -89,8 +89,11 @@
     if(!$scope.showTour) $scope.tour.stops = $scope.tour.stops.slice(0, 2)
 
     $scope.activeStop = 0
-    $scope.activateStop = function(index) {
+    $scope.activateStop = function(index, e) {
+      if($scope.activeStop == index && e.target.nodeName == 'H2') return $scope.activeStop = null
       $scope.activeStop = index
+      var stop = $('article section:nth-of-type('+(index+1)+')')[0]
+      window.setTimeout(function() { stop.scrollIntoViewIfNeeded() }, 0)
     }
 
     $scope.mainAndColors = function(stop) {
@@ -99,7 +102,6 @@
       return stops
     }
 
-    window.$scope = $scope
     $scope.audio = angular.element('audio')[0]
     $scope.play = function(stop, event) {
       var li = angular.element(event.target)

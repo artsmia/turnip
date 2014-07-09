@@ -51,12 +51,16 @@ section {
   width: 100%;
   background-color: #3b3b3b;
   color: #f4f4f4;
+  max-height: 37em;
+  overflow: hidden;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  border-width: 1px 0 1px 0;
+  -webkit-transition: color 225ms ease-in;
 }
 section h2 {
   margin: 0;
   padding: 0.5em 1em;
-  border: 1px solid rgba(1, 1, 1, 0.4);
-  border-width: 1px 0 0px 0;
+  -webkit-transition: background-color 225ms ease-in;
 }
 section h2, li strong {
   font-size: 1em;
