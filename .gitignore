@@ -8,3 +8,4 @@ audacious-eye-tour
 **/*.zip
 *.aif
 _site
+logs
