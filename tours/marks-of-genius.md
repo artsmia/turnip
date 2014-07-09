@@ -11,13 +11,11 @@ stops:
     name: Narrator's Introduction
     more:
     speaker: Eric Bruce
-    length: ':55'
     colors:
       green:
         file: '000G'
         name: Welcome
         speaker: Kaywin Feldman
-        length: 
 
   -
     id: 2
@@ -27,23 +25,19 @@ stops:
     accession: 71.65
     tms: 19748
     speaker: Tom Rassieur
-    length: '2:15'
     colors:
       green:
         file: '001G'
         name: The artist and subject
         speaker: Tom Rassieur
-        length: '1:48'
       red:
         file: '001R'
         name: Interest in printmaking
         speaker: Tom Rassieur
-        length: '1:33'
       yellow:
         file: '001Y'
         name: Conte crayon
         speaker: Tom Rassieur
-        length: ':52'
 
   -
     id: 3
@@ -53,23 +47,19 @@ stops:
     accession: 69.7
     tms: 1743
     speaker: Tom Rassieur
-    length: '2:56'
     colors:
       green:
         file: '002G'
         name: R. McGarry's insights
         speaker: Rachel McGarry
-        length: '1:41'
       red:
         file: '002R'
         name: How it came to Minneapolis
         speaker: Tom Rassieur
-        length: '1:38'
       yellow:
         file: '002Y'
         name: Birthday story
         speaker: Tom Rassieur
-        length: '1:45'
 
   -
     id: 4
@@ -79,23 +69,19 @@ stops:
     tms: 18497
     more:
     speaker: Tom Rassieur
-    length: '2:40'
     colors:
       green:
         file: '003G'
         name: A close look
         speaker: Tom Rassieur
-        length: '1:13'
       red:
         file: '003R'
         name: Brushwork
         speaker: Tom Rassieur
-        length: '1:34'
       yellow:
         file: '003Y'
         name: Self-portraiture
         speaker: Rachel McGarry
-        length: '0:35'
 
   -
     id: 5
@@ -105,23 +91,19 @@ stops:
     tms: 33378
     more:
     speaker: Rachel McGarry
-    length: '2:05'
     colors:
       green:
         file: '004G'
         name: Story details
         speaker: Rachel McGarry
-        length: ':54'
       red:
         file: '004R'
         name: Techniques for enlivening a scene
         speaker: Rachel McGarry
-        length: '1:11'
       yellow:
         file: '004Y'
         name: Carracci's contributions
         speaker: Rachel McGarry
-        length: ':55'
 
   -
     id: 6
@@ -130,23 +112,19 @@ stops:
     accession: 67.31.4
     tms: 1637
     speaker: Rachel McGarry
-    length: '1:34'
     colors:
       green:
         file: '005G'
         name: In-depth look
         speaker: Rachel McGarry
-        length: '2:15'
       red:
         file: '005R'
         name: Motivations
         speaker: Rachel McGarry
-        length: '1:35'
       yellow:
         file: '005Y'
         name: What was on his mind?
         speaker: Rachel McGarry
-        length: '1:38'
 
   -
     id: 7
@@ -155,23 +133,19 @@ stops:
     accession: 15.137
     tms: 10434
     speaker: Marla Kinney
-    length: '2:36'
     colors:
       green:
         file: '006G'
         name: Composition and interpretation
         speaker: Marla Kinney
-        length: '2:28'
       red:
         file: '006R'
         name: Homer's process
         speaker: Marla Kinney
-        length: '2:04'
       yellow:
         file: '006Y'
         name: Journalistic illustrator
         speaker: Marla Kinney
-        length: '2:13'
 
   -
     id: 8
@@ -180,23 +154,19 @@ stops:
     accession: 82.73
     tms: 3106
     speaker: Rachel McGarry
-    length: '1:51'
     colors:
       green:
         file: '007G'
         name: A perfect drawing
         speaker: Rachel McGarry
-        length: '1:43'
       red:
         file: '007R'
         name: How was it made
         speaker: Rachel McGarry
-        length: ':52'
       yellow:
         file: '007Y'
         name: Fit for a king
         speaker: Rachel McGarry
-        length: '1:56'
 
   -
     id: 9
@@ -205,23 +175,19 @@ stops:
     accession: 73.35.1a,b
     tms: 19941
     speaker: Rachel McGarry
-    length: '2:16'
     colors:
       green:
         file: '008G'
         name: Fancelli's imagination
         speaker: Rachel McGarry
-        length: 
       red:
         file: '008R'
         name: Fancelli's interpretation
         speaker: Rachel McGarry
-        length: 
       yellow:
         file: '008Y'
         name: The Underworld
         speaker: Rachel McGarry
-        length: 
 
   -
     id: 10
@@ -230,23 +196,19 @@ stops:
     accession: 61.36.22
     tms: 1421
     speaker: Roberta Bartoli
-    length:
     colors:
       green:
         file: '009G'
         name: Passion for sculpture
         speaker: Roberta Bartoli
-        length:
       red:
         file: '009R'
         name: Artist's life at time
         speaker: Roberta Bartoli
-        length:
       yellow:
         file: '009Y'
         name: Intriguing details
         speaker: Roberta Bartoli
-        length:
 
   -
     id: 11
@@ -255,23 +217,19 @@ stops:
     accession: 64.75
     tms: 1574
     speaker: Denis Jon
-    length:
     colors:
       green:
         file: '010G'
         name: Military Subjects
         speaker: Denis Jon
-        length:
       red:
         file: '010R'
         name: Pop Art
         speaker: Denis Jon
-        length:
       yellow:
         file: '010Y'
         name: Artist's life
         speaker: Denis Jon
-        length:
 
   -
     id: 12
@@ -280,23 +238,19 @@ stops:
     accession: 2013.23
     tms: 116123
     speaker: Rachel McGarry
-    length:
     colors:
       green:
         file: '011G'
         name: About the artist
         speaker: Rachel McGarry
-        length:
       red:
         file: '011R'
         name: Why R. McGarry loves this
         speaker: Rachel McGarry
-        length:
       yellow:
         file: '011Y'
         name: Story of Hercules
         speaker: Rachel McGarry
-        length:
 
   -
     id: 13
@@ -305,23 +259,19 @@ stops:
     accession: 56.4
     tms: 1315
     speaker: Tom Rassieur
-    length:
     colors:
       green:
         file: '012G'
         name: Nature
         speaker: Tom Rassieur
-        length:
       red:
         file: '012R'
         name: Nolde's description
         speaker: Tom Rassieur
-        length:
       yellow:
         file: '012Y'
         name: Nolde and the Nazi Party
         speaker: Tom Rassieur 
-        length:
 ---
 
 Featuring MIA Director and President Kaywin Feldman, curators
