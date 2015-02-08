@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'yaml'
 require 'pp'
 require 'mp3info'
-require 'pry'
+# require 'pry'
 require 'json'
 
 #
