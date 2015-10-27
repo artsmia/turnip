@@ -1,4 +1,3 @@
-name: Your New Jekyll Site
-markdown: redcarpet
-exclude: ['audacious-eye-tour', 'matisse-tour', 'files']
+name: Mia Audio Tours
+exclude: ['audacious-eye-tour', 'matisse-tour', 'delacroix', 'files']
 permalink: /:title.json

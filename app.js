@@ -66,7 +66,7 @@
     $scope.tour.trustedContent = $sce.trustAsHtml($scope.tour.content)
     $rootScope.pageTitle = tour.title
 
-    $scope.tourUrl = '/matisse'
+    $scope.tourUrl = '/delacroix'
     $scope.showTour = !tour.paid || !!window.location.pathname.match($scope.tourUrl)
     $scope.inApp = navigator.userAgent.match(/org.artsmia.(\w+)/)
     var storeLink = navigator.userAgent.match(/iPhone|iPad/) &&
@@ -75,7 +75,7 @@
       'https://play.google.com/store/apps/details?id=org.artsmia.android' || ''
 
 
-    $scope.tourLink = $scope.inApp ? "/matisse-tour/#/matisse-tour" : storeLink
+    $scope.tourLink = $scope.inApp ? "/delacroix/#/delacroix" : storeLink
     $scope.openAppOrStore = function(event) {
       if(!$scope.inApp && navigator.userAgent.match(/iPhone|iPad/)) {
         event.preventDefault()
